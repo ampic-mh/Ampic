@@ -17,28 +17,28 @@ export default function HomePage() {
   // Hero Slider
   const slides = [
     {
-      title: "PLAFOND BA13",
-      subtitle: "Faux plafonds modernes & finitions premium",
+      title: "FAUX PLAFOND",
+      subtitle: "Plafonds BA13 & Armstrong pour tous vos espaces",
       description:
-        "Installation professionnelle de plafonds BA13 pour tous types d'espaces",
+        "Installation professionnelle de faux plafonds modernes avec finitions premium",
       image:
         "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1920&q=80",
       cta: "Demander un devis",
     },
     {
-      title: "DESIGN BA13 + LED",
-      subtitle: "Niches, formes, corniches, éclairage intégré",
+      title: "CLOISON BA13",
+      subtitle: "Séparation d'espaces & isolation optimale",
       description:
-        "Créations sur mesure avec intégration LED pour des ambiances uniques",
+        "Création de cloisons sur mesure avec isolation phonique et thermique",
       image:
         "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80",
-      cta: "Découvrir nos designs",
+      cta: "Découvrir nos services",
     },
     {
-      title: "FINITION PLATIPRO",
-      subtitle: "Joints parfaits, rendu lisse, qualité chantier propre",
+      title: "HABILLAGE",
+      subtitle: "Finitions murales & décoratives de qualité",
       description:
-        "Finitions impeccables pour un résultat durable et esthétique",
+        "Habillage et revêtement pour un rendu esthétique et durable",
       image:
         "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1920&q=80",
       cta: "En savoir plus",
@@ -78,30 +78,37 @@ export default function HomePage() {
   // Services
   const services = [
     {
-      title: "Plafond BA13",
+      title: "Faux Plafond BA13",
       description:
-        "Installation de faux plafonds simple, double ou suspendu. Dissimulation parfaite des installations techniques.",
+        "Installation de faux plafonds en BA13, simple ou double. Finitions soignées et dissimulation parfaite des installations techniques.",
       image:
         "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80",
     },
     {
-      title: "Cloisons BA13",
+      title: "Faux Plafond Armstrong",
       description:
-        "Création de cloisons séparatives avec isolation phonique et thermique adaptée à vos besoins.",
+        "Pose de plafonds suspendus Armstrong pour bureaux, commerces et locaux professionnels. Solution acoustique et esthétique.",
+      image:
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    },
+    {
+      title: "Cloison BA13",
+      description:
+        "Création de cloisons séparatives en BA13 avec isolation phonique et thermique adaptée à vos besoins.",
       image:
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
     },
     {
-      title: "Design BA13 & LED",
+      title: "Habillage",
       description:
-        "Formes décoratives, niches murales, corniches et intégration d'éclairage LED sur mesure.",
+        "Habillage mural et revêtements décoratifs pour un rendu esthétique et une finition impeccable de vos espaces.",
       image:
         "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
     },
     {
-      title: "Finition joints PLATIPRO",
+      title: "Travaux Divers",
       description:
-        "Enduit, ponçage fin et finitions professionnelles pour une surface parfaitement lisse.",
+        "Travaux de construction et rénovation divers. Nous vous accompagnons dans tous vos projets d'aménagement.",
       image:
         "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80",
     },
@@ -156,19 +163,19 @@ export default function HomePage() {
   // Blog posts
   const posts = [
     {
-      title: "Quel plafond BA13 choisir ?",
+      title: "BA13 ou Armstrong : quel faux plafond choisir ?",
       excerpt:
-        "Guide complet pour choisir le type de plafond adapté à votre espace",
+        "Guide complet pour choisir le type de plafond adapté à votre espace et vos besoins",
     },
     {
-      title: "Idées design BA13 avec LED",
+      title: "Les avantages des cloisons BA13",
       excerpt:
-        "Inspirations et tendances pour intégrer l'éclairage LED dans vos plafonds",
+        "Découvrez pourquoi le BA13 est la solution idéale pour vos séparations d'espaces",
     },
     {
-      title: "PLATIPRO : pourquoi la finition change tout ?",
+      title: "L'importance de l'habillage mural",
       excerpt:
-        "L'importance des finitions professionnelles pour un résultat durable",
+        "Comment un bon habillage transforme l'apparence et la qualité de vos espaces",
     },
   ];
 
@@ -269,7 +276,7 @@ export default function HomePage() {
       <section className="py-24 px-8 bg-[#f8f8f8]">
         <div className="max-w-[1400px] mx-auto">
           <p className="text-center text-lg text-[#666666] mb-16 max-w-3xl mx-auto">
-            Le patrimoine AMPIC est axé autour de trois valeurs fondatrices :
+            Depuis 2010, AMPIC s'engage autour de trois valeurs fondamentales :
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {values.map((value, index) => (
@@ -297,19 +304,19 @@ export default function HomePage() {
               </h2>
               <div className="space-y-6 text-lg text-[#666666] leading-relaxed">
                 <p>
-                  Un espace est bien plus qu'une œuvre architecturale. Un espace
-                  c'est aussi un lieu de création, un lieu de partage, là où les
-                  compétences se côtoient.
+                  <span className="font-semibold text-[#1a1a1a]">AMPIC</span> est
+                  spécialisée dans les travaux de construction et d'aménagement
+                  intérieur : faux plafonds, cloisons en BA13 et habillage.
                 </p>
                 <p>
-                  Chez{" "}
-                  <span className="font-semibold text-[#1a1a1a]">AMPIC</span>,
-                  on a bien compris ! منذ 2010، نحن نرافقك.
+                  Depuis <span className="font-semibold text-[#1a1a1a]">2010</span>,
+                  nous mettons notre expertise au service de vos projets résidentiels,
+                  commerciaux et professionnels.
                 </p>
                 <p>
-                  On vous accompagne pour allier le plaisir au pratique et le
-                  confort à l'ingénieux, à travers une multitude de prestations,
-                  de l'analyse de votre espace jusqu'à sa maintenance.
+                  Notre engagement : qualité de finition, respect des délais et
+                  satisfaction client. Nous vous accompagnons de la conception
+                  jusqu'à la réalisation finale de vos espaces.
                 </p>
               </div>
               <a
@@ -450,9 +457,9 @@ export default function HomePage() {
       <section className="py-32 px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-4xl font-light text-[#1a1a1a] leading-relaxed italic">
-            "Le plafond n'est pas juste une finition…
+            "Chaque espace mérite une finition parfaite…
             <br />
-            c'est l'identité de votre espace."
+            AMPIC transforme vos idées en réalité."
           </p>
         </div>
       </section>
@@ -461,7 +468,7 @@ export default function HomePage() {
       <section id="blog" className="py-32 px-8 bg-[#f8f8f8]">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="text-5xl font-bold text-[#1a1a1a] mb-12 text-center">
-            Conseils BA13
+            Conseils & Astuces
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {posts.map((post, index) => (
