@@ -60,7 +60,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 md:py-32 px-6 bg-white">
+    <section id="services" className="py-24 md:py-32 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         
         {/* HEADER SECTION */}

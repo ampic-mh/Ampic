@@ -27,7 +27,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-24 lg:py-32 px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50"
+      className="relative py-24 lg:py-32 px-6 lg:px-8 bg-gray-50"
     >
       {/* Background Decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

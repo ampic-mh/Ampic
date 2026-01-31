@@ -55,7 +55,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 lg:py-32 px-6 lg:px-8 bg-gray-50 overflow-hidden">
+    <section id="faq" className="relative py-24 lg:py-32 px-6 lg:px-8 bg-white overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-gray-100 rounded-full blur-3xl opacity-30" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gray-100 rounded-full blur-3xl opacity-20" />
@@ -78,7 +78,7 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 hover:border-gray-300 transition-all duration-300 overflow-hidden"
+              className="bg-gray-50 border border-gray-200 hover:border-gray-300 transition-all duration-300 overflow-hidden"
             >
               <button
                 onClick={() => toggleFAQ(index)}

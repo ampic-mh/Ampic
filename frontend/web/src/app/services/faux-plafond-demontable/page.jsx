@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft, CheckCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import imgArmstrong from "@/assets/armstrang.jpg";
@@ -117,35 +117,56 @@ export default function FauxPlafondDemontablePage() {
       className="min-h-screen bg-white"
       style={{ fontFamily: "Inter, -apple-system, sans-serif" }}
     >
-      {/* Hero Section */}
-      <section className="relative h-[60vh] w-full overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative h-[90vh] w-full overflow-hidden">
+        {/* 1. BACKGROUND IMAGE */}
+        <div className="absolute inset-0 z-0">
           <img
             src={imgArmstrong}
-            alt="Faux plafond démontable"
-            className="w-full h-full object-cover"
+            alt="Architecture Intérieure - Faux Plafond BA13"
+            className="w-full h-full object-cover opacity-90 transition-transform duration-[10s] ease-out scale-100 hover:scale-110"
+            style={{ animation: "slowZoom 20s infinite alternate" }}
           />
-          <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        <div className="relative h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-8 w-full">
+
+        {/* 2. GRADIENTS */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+
+        {/* 3. CONTENT CONTAINER */}
+        <div className="relative z-20 h-full max-w-7xl mx-auto px-6 flex flex-col justify-center mt-10 md:mt-20">
+          {/* A. NAVIGATION */}
+          <div className="absolute top-20 md:top-16 left-6 md:left-8 animate-in fade-in slide-in-from-top-4 duration-1000">
             <Link
               to="/#services"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
+              className="group inline-flex items-center gap-3 text-white/70 hover:text-amber-500 transition-colors uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold"
             >
-              <ArrowLeft size={20} />
-              Retour aux services
+              <div className="w-8 h-[1px] bg-white/30 group-hover:w-12 group-hover:bg-amber-500 transition-all duration-300" />
+              Retour aux Services
             </Link>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              FAUX PLAFOND DÉMONTABLE
+          </div>
+
+          {/* B. MAIN TEXT BLOCK */}
+          <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+            <h1 className="text-5xl md:text-5xl lg:text-7xl font-serif text-white leading-[0.9] mb-10">
+              Faux plafond démontable
             </h1>
-            <p className="text-xl text-white/90 max-w-3xl">
+
+            <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-xl border-l-2 border-amber-600 pl-6">
               Un faux plafond démontable (ou suspendu) est constitué d'une
               ossature métallique visible ou cachée recevant des dalles,
               permettant un accès facile au plénum. Idéal pour bureaux et locaux
               commerciaux.
             </p>
           </div>
+        </div>
+
+        {/* 4. SCROLL INDICATOR (CORRECTED) */}
+        {/* Changed logic: w-full + items-center ensures perfect centering */}
+        <div className="absolute bottom-10 left-0 w-full z-20 flex flex-col items-center gap-2 animate-bounce opacity-70">
+          <span className="text-[10px] uppercase tracking-widest text-white/50">
+            Découvrir
+          </span>
+          <ChevronDown className="text-amber-500 w-6 h-6" />
         </div>
       </section>
 
@@ -180,10 +201,7 @@ export default function FauxPlafondDemontablePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {types.map((type, index) => (
-              <div
-                key={index}
-                className="bg-[#f8f8f8] overflow-hidden group"
-              >
+              <div key={index} className="bg-[#f8f8f8] overflow-hidden group">
                 <div className="overflow-hidden">
                   <img
                     src={type.image}
@@ -231,10 +249,7 @@ export default function FauxPlafondDemontablePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {bordures.map((bordure, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 shadow-sm"
-              >
+              <div key={index} className="bg-white p-8 shadow-sm">
                 <span className="inline-block bg-[#1a1a1a] text-white text-sm px-4 py-1 mb-4">
                   {bordure.type}
                 </span>

@@ -67,7 +67,7 @@ export default function ProjectsSection() {
       : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="projets" className="py-24 lg:py-32 px-6 lg:px-8 bg-gradient-to-b bg-gray-50">
+    <section id="projets" className="py-24 lg:py-32 px-6 lg:px-8 bg-gradient-to-b bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">          

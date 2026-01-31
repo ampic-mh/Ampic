@@ -33,8 +33,8 @@ export default function ValuesSection() {
   return (
     <section id="valeurs" className="relative py-20 sm:py-28 lg:py-36 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
       {/* Subtle Background Elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-gray-50 via-transparent to-transparent rounded-full blur-3xl opacity-50" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-blue-50 via-transparent to-transparent rounded-full blur-3xl opacity-50" />
+      {/* <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-gray-50 via-transparent to-transparent rounded-full blur-3xl opacity-50" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-blue-50 via-transparent to-transparent rounded-full blur-3xl opacity-50" /> */}
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Luxury Header */}
