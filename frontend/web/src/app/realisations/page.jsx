@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { Filter, ArrowRight } from "lucide-react";
 
 export default function RealisationsPage() {
@@ -142,8 +140,6 @@ export default function RealisationsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0F172A]">
-      <Header />
-
       {/* Hero Section */}
       <section
         className="relative pt-32 pb-20 px-6 overflow-hidden"
@@ -333,8 +329,6 @@ export default function RealisationsPage() {
           </a>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

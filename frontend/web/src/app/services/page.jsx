@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import {
   ArrowRight,
   CheckCircle,
@@ -114,8 +112,6 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0F172A]">
-      <Header />
-
       {/* Hero Section */}
       <section
         className="relative pt-32 pb-20 px-6 overflow-hidden"
@@ -249,8 +245,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

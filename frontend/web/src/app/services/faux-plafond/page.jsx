@@ -1,6 +1,4 @@
 "use client";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -62,8 +60,6 @@ export default function FauxPlafondPage() {
       className="min-h-screen bg-white"
       style={{ fontFamily: "Inter, -apple-system, sans-serif" }}
     >
-      <Header />
-
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full overflow-hidden">
         <div className="absolute inset-0">
@@ -75,7 +71,7 @@ export default function FauxPlafondPage() {
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative h-full flex items-center">
-          <div className="max-w-[1400px] mx-auto px-8 w-full">
+          <div className="max-w-7xl mx-auto px-8 w-full">
             <Link
               to="/#services"
               className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
@@ -98,7 +94,7 @@ export default function FauxPlafondPage() {
 
       {/* Caractéristiques */}
       <section className="py-16 px-8 bg-[#f8f8f8]">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {caracteristiques.map((item, index) => (
               <div
@@ -119,7 +115,7 @@ export default function FauxPlafondPage() {
 
       {/* Types de faux plafond */}
       <section className="py-24 px-8 bg-white">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-[#1a1a1a] mb-4 text-center">
             Types de faux plafond
           </h2>
@@ -182,7 +178,8 @@ export default function FauxPlafondPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/#contact"
+              to="/"
+              state={{ scrollTo: "contact" }}
               className="bg-white text-[#1a1a1a] px-10 py-4 font-semibold tracking-wide hover:bg-gray-100 transition-colors"
             >
               DEMANDER UN DEVIS
@@ -198,8 +195,6 @@ export default function FauxPlafondPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

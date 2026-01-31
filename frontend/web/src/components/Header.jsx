@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
+import { siteConfig } from "../config/site";
+import { useSectionLink } from "../utils/useSectionLink";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleSectionClick = useSectionLink({
+    onAfterScroll: () => setIsMobileMenuOpen(false),
+  });
 
   // Handle Scroll State
   useEffect(() => {
@@ -13,33 +19,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth Scroll Function with Offset
-  const scrollToSection = (e, href) => {
-    e.preventDefault();
-    const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-
-    // Close mobile menu if open
-    setIsMobileMenuOpen(false);
-  };
-
-  const navItems = [
-    { name: "À propos", href: "#a-propos" },
-    { name: "Nos services", href: "#services" },
-    { name: "Nos projets", href: "#projets" },
-    { name: "Conseils", href: "#blog" },
-    { name: "Contact", href: "#contact" },
-  ];
 
   return (
     <header
@@ -49,12 +28,12 @@ export default function Header() {
           : "bg-transparent py-6"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
         {/* --- Logo --- */}
-        <a 
-          href="/" 
-          onClick={(e) => scrollToSection(e, "#hero")}
-          className="flex items-center z-50 relative"
+        <button
+          type="button"
+          onClick={() => handleSectionClick("hero")}
+          className="flex items-center z-50 relative bg-transparent border-none cursor-pointer p-0 text-left"
         >
           <div
             className="text-2xl font-bold tracking-tight"
@@ -68,33 +47,36 @@ export default function Header() {
               AMPIC
             </span>
           </div>
-        </a>
+        </button>
 
         {/* --- Desktop Navigation --- */}
         <nav className="hidden lg:flex items-center gap-10">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => scrollToSection(e, item.href)}
-              className={`text-sm font-medium tracking-wide transition-colors ${
-                isScrolled
-                  ? "text-[#666666] hover:text-[#1a1a1a]"
-                  : "text-white/90 hover:text-white"
-              }`}
-              style={{ letterSpacing: "0.5px" }}
-            >
-              {item.name}
-            </a>
-          ))}
+          {siteConfig.navItems.map((item) => {
+            const sectionId = item.href.replace(/^#/, "");
+            return (
+              <button
+                key={item.name}
+                type="button"
+                onClick={() => handleSectionClick(sectionId)}
+                className={`text-sm font-medium tracking-wide transition-colors bg-transparent border-none cursor-pointer p-0 ${
+                  isScrolled
+                    ? "text-[#666666] hover:text-[#1a1a1a]"
+                    : "text-white/90 hover:text-white"
+                }`}
+                style={{ letterSpacing: "0.5px" }}
+              >
+                {item.name}
+              </button>
+            );
+          })}
         </nav>
 
         {/* --- Desktop CTA --- */}
         <div className="hidden lg:block">
-          <a
-            href="#contact"
-            onClick={(e) => scrollToSection(e, "#contact")}
-            className={`px-8 py-3 text-sm font-semibold tracking-wide transition-all ${
+          <button
+            type="button"
+            onClick={() => handleSectionClick("contact")}
+            className={`px-8 py-3 text-sm font-semibold tracking-wide transition-all border-none cursor-pointer ${
               isScrolled
                 ? "bg-[#1a1a1a] text-white hover:bg-[#333333]"
                 : "bg-white text-[#1a1a1a] hover:bg-gray-100"
@@ -102,7 +84,7 @@ export default function Header() {
             style={{ letterSpacing: "0.5px" }}
           >
             DEVIS GRATUIT
-          </a>
+          </button>
         </div>
 
         {/* --- Mobile Hamburger Button --- */}
@@ -136,23 +118,26 @@ export default function Header() {
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => scrollToSection(e, item.href)}
-              className="text-xl font-medium text-[#1a1a1a] hover:text-[#666666] transition-colors"
-            >
-              {item.name}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={(e) => scrollToSection(e, "#contact")}
-            className="mt-4 px-8 py-3 bg-[#1a1a1a] text-white text-sm font-semibold tracking-wide hover:bg-[#333333] transition-all"
+          {siteConfig.navItems.map((item) => {
+            const sectionId = item.href.replace(/^#/, "");
+            return (
+              <button
+                key={item.name}
+                type="button"
+                onClick={() => handleSectionClick(sectionId)}
+                className="text-xl font-medium text-[#1a1a1a] hover:text-[#666666] transition-colors bg-transparent border-none cursor-pointer p-0"
+              >
+                {item.name}
+              </button>
+            );
+          })}
+          <button
+            type="button"
+            onClick={() => handleSectionClick("contact")}
+            className="mt-4 px-8 py-3 bg-[#1a1a1a] text-white text-sm font-semibold tracking-wide hover:bg-[#333333] transition-all border-none cursor-pointer"
           >
             DEVIS GRATUIT
-          </a>
+          </button>
         </div>
       </div>
     </header>
