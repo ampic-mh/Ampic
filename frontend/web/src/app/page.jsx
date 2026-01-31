@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import AMPICHeader from "@/components/AMPICHeader";
-import AMPICFooter from "@/components/AMPICFooter";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import {
   ChevronLeft,
   ChevronRight,
@@ -194,7 +194,7 @@ export default function HomePage() {
       className="min-h-screen bg-white"
       style={{ fontFamily: "Inter, -apple-system, sans-serif" }}
     >
-      <AMPICHeader />
+      <Header />
 
       {/* HERO SLIDER */}
       <section className="relative h-screen w-full overflow-hidden">
@@ -605,7 +605,7 @@ Grâce à une équipe qualifiée et à des matériaux fiables, AMPIC s’engage 
         </div>
       </section>
 
-      <AMPICFooter />
+      <Footer />
     </div>
   );
 }

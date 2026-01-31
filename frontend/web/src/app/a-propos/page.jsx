@@ -1,5 +1,5 @@
-import AMPICHeader from "@/components/AMPICHeader";
-import AMPICFooter from "@/components/AMPICFooter";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Award, Users, Target, Heart, MapPin, ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
@@ -59,7 +59,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0F172A]">
-      <AMPICHeader />
+      <Header />
 
       {/* Hero Section */}
       <section
@@ -347,7 +347,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <AMPICFooter />
+      <Footer />
     </div>
   );
 }

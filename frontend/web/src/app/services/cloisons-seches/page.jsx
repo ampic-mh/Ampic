@@ -1,6 +1,6 @@
 "use client";
-import AMPICHeader from "@/components/AMPICHeader";
-import AMPICFooter from "@/components/AMPICFooter";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { ArrowLeft, CheckCircle, Volume2, Droplets, Flame, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -127,7 +127,7 @@ export default function CloisonsSechesPAge() {
       className="min-h-screen bg-white"
       style={{ fontFamily: "Inter, -apple-system, sans-serif" }}
     >
-      <AMPICHeader />
+      <Header />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full overflow-hidden">
@@ -287,7 +287,7 @@ export default function CloisonsSechesPAge() {
         </div>
       </section>
 
-      <AMPICFooter />
+      <Footer />
     </div>
   );
 }

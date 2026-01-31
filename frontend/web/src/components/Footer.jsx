@@ -1,4 +1,4 @@
-export default function AMPICFooter() {
+export default function Footer() {
   return (
     <footer className="bg-[#1a1a1a] text-white py-16 px-6">
       <div className="max-w-[1400px] mx-auto">

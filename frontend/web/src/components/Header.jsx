@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function AMPICHeader() {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

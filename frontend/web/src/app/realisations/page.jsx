@@ -1,6 +1,6 @@
 import { useState } from "react";
-import AMPICHeader from "@/components/AMPICHeader";
-import AMPICFooter from "@/components/AMPICFooter";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Filter, ArrowRight } from "lucide-react";
 
 export default function RealisationsPage() {
@@ -142,7 +142,7 @@ export default function RealisationsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0F172A]">
-      <AMPICHeader />
+      <Header />
 
       {/* Hero Section */}
       <section
@@ -334,7 +334,7 @@ export default function RealisationsPage() {
         </div>
       </section>
 
-      <AMPICFooter />
+      <Footer />
     </div>
   );
 }
