@@ -49,7 +49,7 @@ export default function AboutPage() {
   ];
 
   const milestones = [
-    { year: "2010", event: "Création d'AMPIC" },
+    { year: "2019", event: "Création d'AMPIC" },
     { year: "2013", event: "100+ projets réalisés" },
     { year: "2016", event: "Expansion de l'équipe" },
     { year: "2019", event: "Spécialisation Design LED" },
@@ -74,7 +74,7 @@ export default function AboutPage() {
           </h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
             Votre partenaire de confiance pour tous vos projets de plafonds BA13
-            depuis 2010
+            depuis 2019
           </p>
         </div>
       </section>
@@ -105,7 +105,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-lg text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
                 <p>
-                  Fondée en 2010,{" "}
+                  Fondée en 2019,{" "}
                   <span className="font-semibold text-[#2563EB]">AMPIC</span>{" "}
                   est née de la passion de créer des espaces exceptionnels à
                   travers l'art du plafond BA13 et du design Placo.

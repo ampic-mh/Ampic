@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import AMPICHeader from "@/components/AMPICHeader";
 import AMPICFooter from "@/components/AMPICFooter";
 import {
@@ -10,6 +11,16 @@ import {
   MessageCircle,
 } from "lucide-react";
 
+// Import images
+import imgPlafondBA13 from "@/assets/plafand-b13.jpg";
+import imgArmstrong from "@/assets/armstrang.jpg";
+import imgHabillage from "@/assets/Habillage.jpg";
+import imgcloison from "@/assets/Cloison.jpg";
+import imgtravaux from "@/assets/travaux_devirse.jpeg";
+import imgaceule from "@/assets/aceul.jpeg";
+import imgacuel from "@/assets/acuel.jpeg";
+import imgaceul2 from "@/assets/aceul2.jpeg";
+import imghabillage2 from "@/assets/Habillage2.jpeg";
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [filter, setFilter] = useState("Tout");
@@ -39,8 +50,7 @@ export default function HomePage() {
       subtitle: "Finitions murales & décoratives de qualité",
       description:
         "Habillage et revêtement pour un rendu esthétique et durable",
-      image:
-        "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1920&q=80",
+      image: imghabillage2,
       cta: "En savoir plus",
     },
   ];
@@ -78,39 +88,39 @@ export default function HomePage() {
   // Services
   const services = [
     {
-      title: "Faux Plafond BA13",
+      title: "FAUX PLAFOND EN PLAQUE DE PLATRE",
       description:
-        "Installation de faux plafonds en BA13, simple ou double. Finitions soignées et dissimulation parfaite des installations techniques.",
-      image:
-        "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80",
+        "Les faux plafonds en plaques de plâtre (type BA13, 12,5 mm) sont principalement suspendus sur une ossature métallique ou autoportants. Ils offrent des solutions acoustiques, décoratives (perforées, lisses) ou techniques (Standard, hydrofuge, Coup-feu), parfaits pour dissimuler des gaines, intégrer des luminaires ou améliorer l'isolation.",
+      image: imgPlafondBA13,
+      link: "/services/faux-plafond",
     },
     {
-      title: "Faux Plafond Armstrong",
+      title: "FAUX PLAFOND DEMENTABLES",
       description:
-        "Pose de plafonds suspendus Armstrong pour bureaux, commerces et locaux professionnels. Solution acoustique et esthétique.",
-      image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+        "Un faux plafond démontable (ou suspendu) est constitué d'une ossature métallique visible ou cachée recevant des dalles (60x60 cm ou 120x60 cm) en plâtre, métal, fibre minérale ou PVC, permettant un accès facile au plénum. Idéal pour bureaux et locaux commerciaux, il offre une excellente correction acoustique, thermique et une pose rapide.",
+      image: imgArmstrong,
+      link: "/services/faux-plafond-demontable",
     },
     {
-      title: "Cloison BA13",
+      title: "CLOISON SECHES",
       description:
-        "Création de cloisons séparatives en BA13 avec isolation phonique et thermique adaptée à vos besoins.",
-      image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+        "Paroi de séparation intérieure légère, montée sans mortier ni collage, composée d'une ossature (métal ou bois) sur laquelle sont vissées des plaques de plâtre, permettant une isolation thermique/acoustique et un aménagement rapide des espaces.",
+      image: imgcloison,
+      link: "/services/cloisons-seches",
     },
     {
-      title: "Habillage",
+      title: "HABILLAGE EN BA13",
       description:
-        "Habillage mural et revêtements décoratifs pour un rendu esthétique et une finition impeccable de vos espaces.",
-      image:
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+        "Est une solution polyvalente pour les cloisons, doublages et plafonds, nécessitant une ossature métallique ou un collage direct.",
+      image: imgHabillage,
+      link: "/services/habillage-ba13",
     },
     {
       title: "Travaux Divers",
       description:
         "Travaux de construction et rénovation divers. Nous vous accompagnons dans tous vos projets d'aménagement.",
-      image:
-        "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80",
+      image:imgtravaux
+        ,
     },
   ];
 
@@ -118,7 +128,7 @@ export default function HomePage() {
   const projects = [
     {
       title: "Salon Moderne LED",
-      category: "LED",
+      category: "les hôpitaux",
       image:
         "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80",
     },
@@ -130,7 +140,7 @@ export default function HomePage() {
     },
     {
       title: "Chambre Design",
-      category: "LED",
+      category: "les hôpitaux",
       image:
         "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80",
     },
@@ -154,7 +164,7 @@ export default function HomePage() {
     },
   ];
 
-  const filters = ["Tout", "LED", "Moderne", "Bureaux", "Magasins"];
+  const filters = ["Tout", "les hôpitaux", "McDonald's", "Bureaux", "Magasins"];
   const filteredProjects =
     filter === "Tout"
       ? projects
@@ -276,7 +286,7 @@ export default function HomePage() {
       <section className="py-24 px-8 bg-[#f8f8f8]">
         <div className="max-w-[1400px] mx-auto">
           <p className="text-center text-lg text-[#666666] mb-16 max-w-3xl mx-auto">
-            Depuis 2010, AMPIC s'engage autour de trois valeurs fondamentales :
+            Depuis 2019, AMPIC s'engage autour de trois valeurs fondamentales :
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {values.map((value, index) => (
@@ -304,19 +314,16 @@ export default function HomePage() {
               </h2>
               <div className="space-y-6 text-lg text-[#666666] leading-relaxed">
                 <p>
-                  <span className="font-semibold text-[#1a1a1a]">AMPIC</span> est
-                  spécialisée dans les travaux de construction et d'aménagement
-                  intérieur : faux plafonds, cloisons en BA13 et habillage.
+                  <span className="font-semibold text-[#1a1a1a]">AMPIC </span>
+
+                    est une société spécialisée dans les travaux d’aménagement et de finition, notamment les faux plafonds, cloisons, habillages et solutions modernes en plaque de plâtre.
                 </p>
                 <p>
-                  Depuis <span className="font-semibold text-[#1a1a1a]">2010</span>,
-                  nous mettons notre expertise au service de vos projets résidentiels,
-                  commerciaux et professionnels.
+                 Notre objectif est d’offrir à nos clients un travail de qualité, réalisé avec sérieux, précision et dans le respect des délais. Chaque projet est étudié avec attention afin de proposer des solutions adaptées aux besoins et aux exigences de nos partenaires.
+Grâce à une équipe qualifiée et à des matériaux fiables, AMPIC s’engage à garantir des résultats durables et soignés.
                 </p>
                 <p>
-                  Notre engagement : qualité de finition, respect des délais et
-                  satisfaction client. Nous vous accompagnons de la conception
-                  jusqu'à la réalisation finale de vos espaces.
+                 N’hésitez pas à découvrir nos réalisations et à nous contacter pour toute information ou demande de devis.
                 </p>
               </div>
               <a
@@ -330,12 +337,12 @@ export default function HomePage() {
             {/* Images */}
             <div className="grid grid-cols-2 gap-6">
               <img
-                src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=600&q=80"
+                src={imgacuel}
                 alt="Project 1"
                 className="w-full aspect-[3/4] object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80"
+                src={imgaceul2}
                 alt="Project 2"
                 className="w-full aspect-[3/4] object-cover mt-12"
               />
@@ -396,12 +403,21 @@ export default function HomePage() {
                 <p className="text-[#666666] mb-4 leading-relaxed">
                   {service.description}
                 </p>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-[#1a1a1a] font-semibold hover:gap-3 transition-all"
-                >
-                  En savoir plus <ArrowRight size={18} />
-                </a>
+                {service.link ? (
+                  <Link
+                    to={service.link}
+                    className="inline-flex items-center gap-2 text-[#1a1a1a] font-semibold hover:gap-3 transition-all"
+                  >
+                    En savoir plus <ArrowRight size={18} />
+                  </Link>
+                ) : (
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 text-[#1a1a1a] font-semibold hover:gap-3 transition-all"
+                  >
+                    En savoir plus <ArrowRight size={18} />
+                  </a>
+                )}
               </div>
             ))}
           </div>
