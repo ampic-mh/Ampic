@@ -1,4 +1,4 @@
-"use client";
+
 import { Award, Shield, Zap } from "lucide-react";
 import SectionSeparator from "@/components/SectionSeparator";
 

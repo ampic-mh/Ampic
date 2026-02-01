@@ -1,4 +1,4 @@
-"use client";
+
 
 import {
   CheckCircle,
@@ -9,6 +9,27 @@ import {
 } from "lucide-react";
 import imgArmstrong from "@/assets/armstrang.jpg";
 import ServiceHero from "../components/ServiceHero";
+import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
+
+const title = "Faux Plafond Démontable | AMPIC";
+const description =
+  "Faux plafond démontable type Armstrong au Maroc. Dalles plâtre, métalliques, minérales, PVC et bois. Devis gratuit AMPIC.";
+
+export function meta() {
+  const canonical = getCanonicalUrl("/services/faux-plafond-demontable");
+  const ogImage = getFullOgImageUrl();
+  return [
+    { title },
+    { name: "description", content: description },
+    ...(canonical ? [{ tagName: "link", rel: "canonical", href: canonical }] : []),
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:url", content: canonical || seoConfig.siteUrl },
+    ...(ogImage ? [{ property: "og:image", content: ogImage }] : []),
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+  ];
+}
 
 export default function FauxPlafondDemontablePage() {
   const types = [

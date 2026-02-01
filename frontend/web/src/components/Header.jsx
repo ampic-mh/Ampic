@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { siteConfig } from "../config/site";
 import { useSectionLink } from "../utils/useSectionLink";
 import logoAmpic from "@/assets/shared/ampic-logo.webp";
@@ -6,10 +7,21 @@ import logoAmpic from "@/assets/shared/ampic-logo.webp";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleSectionClick = useSectionLink({
     onAfterScroll: () => setIsMobileMenuOpen(false),
   });
+
+  const handleNavClick = (item) => {
+    if (item.href.startsWith("/")) {
+      navigate(item.href);
+      setIsMobileMenuOpen(false);
+    } else {
+      const sectionId = item.href.replace(/^#/, "");
+      handleSectionClick(sectionId);
+    }
+  };
 
   // Handle Scroll State
   useEffect(() => {
@@ -50,24 +62,21 @@ export default function Header() {
 
         {/* --- Desktop Navigation --- */}
         <nav className="hidden lg:flex items-center gap-10">
-          {siteConfig.navItems.map((item) => {
-            const sectionId = item.href.replace(/^#/, "");
-            return (
-              <button
-                key={item.name}
-                type="button"
-                onClick={() => handleSectionClick(sectionId)}
-                className={`text-sm font-medium tracking-wide transition-colors bg-transparent border-none cursor-pointer p-0 ${
-                  isScrolled
-                    ? "text-[#666666] hover:text-[#1a1a1a]"
-                    : "text-white/90 hover:text-white"
-                }`}
-                style={{ letterSpacing: "0.5px" }}
-              >
-                {item.name}
-              </button>
-            );
-          })}
+          {siteConfig.navItems.map((item) => (
+            <button
+              key={item.name}
+              type="button"
+              onClick={() => handleNavClick(item)}
+              className={`text-sm font-medium tracking-wide transition-colors bg-transparent border-none cursor-pointer p-0 ${
+                isScrolled
+                  ? "text-[#666666] hover:text-[#1a1a1a]"
+                  : "text-white/90 hover:text-white"
+              }`}
+              style={{ letterSpacing: "0.5px" }}
+            >
+              {item.name}
+            </button>
+          ))}
         </nav>
 
         {/* --- Desktop CTA --- */}
@@ -117,19 +126,16 @@ export default function Header() {
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {siteConfig.navItems.map((item) => {
-            const sectionId = item.href.replace(/^#/, "");
-            return (
-              <button
-                key={item.name}
-                type="button"
-                onClick={() => handleSectionClick(sectionId)}
-                className="text-xl font-medium text-[#1a1a1a] hover:text-[#666666] transition-colors bg-transparent border-none cursor-pointer p-0"
-              >
-                {item.name}
-              </button>
-            );
-          })}
+          {siteConfig.navItems.map((item) => (
+            <button
+              key={item.name}
+              type="button"
+              onClick={() => handleNavClick(item)}
+              className="text-xl font-medium text-[#1a1a1a] hover:text-[#666666] transition-colors bg-transparent border-none cursor-pointer p-0"
+            >
+              {item.name}
+            </button>
+          ))}
           <button
             type="button"
             onClick={() => handleSectionClick("contact")}

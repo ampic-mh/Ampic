@@ -1,4 +1,3 @@
-"use client";
 
 import {
   CheckCircle,
@@ -9,6 +8,28 @@ import {
 } from "lucide-react";
 import imgPlafondBA13 from "@/assets/plafand-b13.jpg";
 import ServiceHero from "@/app/services/components/ServiceHero";
+import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
+
+const title = "Faux Plafond en Plaque de Plâtre | AMPIC";
+const description =
+  "Faux plafond suspendu et autoportant en plaque de plâtre au Maroc. Pose professionnelle, finitions soignées. Devis gratuit AMPIC.";
+
+export function meta() {
+  console.log("✅ META FUNCTION IS RUNNING!");
+  const canonical = getCanonicalUrl("/services/faux-plafond");
+  const ogImage = getFullOgImageUrl();
+  return [
+    { title },
+    { name: "description", content: description },
+    ...(canonical ? [{ tagName: "link", rel: "canonical", href: canonical }] : []),
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:url", content: canonical || seoConfig.siteUrl },
+    ...(ogImage ? [{ property: "og:image", content: ogImage }] : []),
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+  ];
+}
 
 export default function FauxPlafondPage() {
   const types = [

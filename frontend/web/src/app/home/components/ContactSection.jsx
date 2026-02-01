@@ -1,4 +1,4 @@
-"use client";
+
 import { MessageCircle, Phone, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { siteConfig } from "@/config/site";

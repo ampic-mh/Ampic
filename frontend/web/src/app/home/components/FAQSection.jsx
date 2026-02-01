@@ -1,4 +1,4 @@
-"use client";
+
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import SectionSeparator from "@/components/SectionSeparator";

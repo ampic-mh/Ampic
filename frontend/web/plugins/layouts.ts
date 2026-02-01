@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { PluginContext } from 'rollup';
-import { normalizePath, transformWithEsbuild, type Plugin } from 'vite';
+import { normalizePath, type Plugin } from 'vite';
 
 export interface HierarchicalLayoutOptions {
   /**

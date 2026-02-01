@@ -1,4 +1,4 @@
-"use client";
+
 import { useState } from "react";
 import SectionSeparator from "@/components/SectionSeparator";
 import { useSectionLink } from "@/utils/useSectionLink";

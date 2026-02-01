@@ -16,7 +16,6 @@ import {
   useRef,
   useState,
   type ReactNode,
-  type FC,
   Component,
 } from 'react';
 import './global.css';
@@ -36,8 +35,76 @@ import type { Route } from './+types/root';
 import { useDevServerHeartbeat } from '../__create/useDevServerHeartbeat';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { seoConfig, getCanonicalUrl, getFullOgImageUrl } from '@/config/seo';
+import { siteConfig } from '@/config/site';
 
 export const links = () => [];
+
+/** Default SEO meta + JSON-LD. Child routes can override title/description via their meta export. */
+export function meta() {
+  const canonical = getCanonicalUrl('/');
+  const ogImage = getFullOgImageUrl();
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': seoConfig.siteUrl ? `${seoConfig.siteUrl}/#organization` : undefined,
+        name: siteConfig.name,
+        description: siteConfig.description,
+        url: seoConfig.siteUrl || undefined,
+        logo: seoConfig.siteUrl ? `${seoConfig.siteUrl}/ampic-logo.webp` : undefined,
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: siteConfig.contact.phoneRaw,
+          email: siteConfig.contact.email,
+          areaServed: 'MA',
+          availableLanguage: 'French',
+        },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: siteConfig.contact.address,
+          addressCountry: 'MA',
+        },
+      },
+      ...(seoConfig.siteUrl
+        ? [
+            {
+              '@type': 'WebSite',
+              '@id': `${seoConfig.siteUrl}/#website`,
+              url: seoConfig.siteUrl,
+              name: siteConfig.name,
+              description: siteConfig.description,
+              publisher: { '@id': `${seoConfig.siteUrl}/#organization` },
+            },
+          ]
+        : []),
+    ],
+  };
+
+  return [
+    { title: seoConfig.defaultTitle },
+    { name: 'description', content: seoConfig.defaultDescription },
+    { name: 'robots', content: 'index, follow' },
+    { name: 'theme-color', content: '#1a1a1a' },
+    ...(canonical ? [{ tagName: 'link', rel: 'canonical', href: canonical }] : []),
+    // Open Graph
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: seoConfig.defaultTitle },
+    { property: 'og:description', content: seoConfig.defaultDescription },
+    { property: 'og:locale', content: seoConfig.locale },
+    ...(ogImage ? [{ property: 'og:image', content: ogImage }] : []),
+    ...(seoConfig.siteUrl ? [{ property: 'og:url', content: seoConfig.siteUrl }] : []),
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: seoConfig.defaultTitle },
+    { name: 'twitter:description', content: seoConfig.defaultDescription },
+    ...(ogImage ? [{ name: 'twitter:image', content: ogImage }] : []),
+    // JSON-LD
+    { 'script:ld+json': jsonLd },
+  ];
+}
 
 if (globalThis.window && globalThis.window !== undefined) {
   globalThis.window.fetch = fetch;
@@ -458,7 +525,7 @@ export function Layout({ children }: { children: ReactNode }) {
     }
   }, [pathname]);
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -483,8 +550,13 @@ export function Layout({ children }: { children: ReactNode }) {
 export default function App() {
   return (
     <SessionProvider>
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#1a1a1a] focus:text-white focus:rounded">
+        Aller au contenu principal
+      </a>
       <Header />
-      <Outlet />
+      <main id="main">
+        <Outlet />
+      </main>
       <Footer />
     </SessionProvider>
   );

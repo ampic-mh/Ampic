@@ -1,5 +1,5 @@
-"use client";
-import { Link } from "react-router-dom";
+
+import { Link } from "react-router";
 import { ArrowRight, ChevronRight, Minus } from "lucide-react";
 import { useSectionLink } from "@/utils/useSectionLink";
 import imgPlafondBA13 from "@/assets/plafand-b13.jpg";

@@ -1,4 +1,4 @@
-"use client";
+
 import { ArrowRight } from "lucide-react";
 import { siteConfig } from "../../../config/site";
 import { Slider } from "@/components/Slider";
