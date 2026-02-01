@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { siteConfig } from "../config/site";
 import { useSectionLink } from "../utils/useSectionLink";
+import logoAmpic from "@/assets/shared/ampic-logo.webp";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,20 +34,18 @@ export default function Header() {
         <button
           type="button"
           onClick={() => handleSectionClick("hero")}
-          className="flex items-center z-50 relative bg-transparent border-none cursor-pointer p-0 text-left"
+          className="flex items-center z-50 relative bg-transparent border-none cursor-pointer p-0 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a1a1a] focus-visible:ring-offset-2 rounded-sm"
+          aria-label="AMPIC - Retour à l'accueil"
         >
-          <div
-            className="text-2xl font-bold tracking-tight"
-            style={{ fontFamily: "Inter, sans-serif" }}
-          >
-            <span
-              className={`${
-                isScrolled || isMobileMenuOpen ? "text-[#1a1a1a]" : "text-white"
-              } transition-colors duration-300`}
-            >
-              AMPIC
-            </span>
-          </div>
+          <img
+            src={logoAmpic}
+            alt="AMPIC"
+            className={`h-9 w-auto object-contain object-left transition-all duration-300 `}
+            width={140}
+            height={36}
+            loading="eager"
+            decoding="async"
+          />
         </button>
 
         {/* --- Desktop Navigation --- */}

@@ -72,7 +72,7 @@ export default function ProjectsSection() {
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">          
           {/* TITRE STRATÉGIQUE */}
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-6xl font-serif text-gray-900 mb-6">
             Notre Savoir-Faire
           </h2>
           

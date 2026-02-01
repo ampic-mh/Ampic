@@ -68,7 +68,7 @@ export default function ServicesSection() {
   
 
           {/* Titre principal */}
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-gray-900 mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-6xl font-serif text-gray-900 mb-6 leading-tight">
             Nos Services
           </h2>
 
