@@ -11,7 +11,7 @@ export const seoConfig = {
   defaultTitle: "AMPIC | Faux Plafond, Cloison & Habillage au Maroc",
   defaultDescription:
     "AMPIC – Experts en faux plafond, cloisons sèches et habillage mural au Maroc. Devis gratuit, chantiers soignés, délais respectés.",
-  defaultOgImage: "/og-image.jpg",
+  defaultOgImage: "/assets/shared/ampic-logo.webp",
   twitterHandle: "",
   locale: "fr_MA",
   localeAlternates: ["fr_FR"] as string[],

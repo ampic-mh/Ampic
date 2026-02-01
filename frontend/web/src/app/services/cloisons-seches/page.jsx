@@ -14,29 +14,18 @@ import {
 
 import imgcloison from "@/assets/Cloison.jpg";
 import ServiceHero from "../components/ServiceHero";
-import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
-
-const title = "Cloisons Sèches | AMPIC";
-const description =
-  "Cloisons sèches et cloisons phoniques au Maroc. Cloison standard, hydrofuge, coupe-feu et Habito. Devis gratuit AMPIC.";
-
-export function meta() {
-  const canonical = getCanonicalUrl("/services/cloisons-seches");
-  const ogImage = getFullOgImageUrl();
-  return [
-    { title },
-    { name: "description", content: description },
-    ...(canonical ? [{ tagName: "link", rel: "canonical", href: canonical }] : []),
-    { property: "og:title", content: title },
-    { property: "og:description", content: description },
-    { property: "og:url", content: canonical || seoConfig.siteUrl },
-    ...(ogImage ? [{ property: "og:image", content: ogImage }] : []),
-    { name: "twitter:title", content: title },
-    { name: "twitter:description", content: description },
-  ];
-}
+import { getCanonicalUrl, getFullOgImageUrl } from "@/config/seo";
+import { useSeo } from "@/utils/useSeo";
 
 export default function CloisonsSechesPAge() {
+  const title = "Cloisons Sèches | AMPIC";
+  const description =
+    "Cloisons sèches et cloisons phoniques au Maroc. Cloison standard, hydrofuge, coupe-feu et Habito. Devis gratuit AMPIC.";
+  
+  const canonical = getCanonicalUrl("/services/cloisons-seches");
+  const ogImage = getFullOgImageUrl();
+
+  useSeo({ title, description, canonical, ogImage });
   const types = [
     {
       title: "Cloison Phonique",
