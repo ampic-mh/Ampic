@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import { ArrowRight } from "lucide-react";
-import { siteConfig } from "@/config/site";
 
 export function meta() {
   return [

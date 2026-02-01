@@ -17,27 +17,18 @@ import imgHabillage from "@/assets/Habillage.jpg";
 import ServiceHero from "@/app/services/components/ServiceHero";
 import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
 
-const title = "Habillage en BA13 | AMPIC";
-const description =
-  "Habillage mural et doublage en plaques BA13 au Maroc. BA13 standard, hydrofuge, phonique et Placoflam. Devis gratuit AMPIC.";
-
-export function meta() {
-  const canonical = getCanonicalUrl("/services/habillage-ba13");
-  const ogImage = getFullOgImageUrl();
-  return [
-    { title },
-    { name: "description", content: description },
-    ...(canonical ? [{ tagName: "link", rel: "canonical", href: canonical }] : []),
-    { property: "og:title", content: title },
-    { property: "og:description", content: description },
-    { property: "og:url", content: canonical || seoConfig.siteUrl },
-    ...(ogImage ? [{ property: "og:image", content: ogImage }] : []),
-    { name: "twitter:title", content: title },
-    { name: "twitter:description", content: description },
-  ];
-}
 
 export default function HabillageBA13Page() {
+  const title = "Habillage en BA13 | AMPIC";
+  const description =
+    "Habillage mural et doublage en plaques BA13 au Maroc. BA13 standard, hydrofuge, phonique et Placoflam. Devis gratuit AMPIC.";
+
+  useSeo({
+    title,
+    description,
+    canonical: getCanonicalUrl("/services/habillage-ba13"),
+    ogImage: getFullOgImageUrl(),
+  });
   const types = [
     {
       title: "BA13 Standard",
