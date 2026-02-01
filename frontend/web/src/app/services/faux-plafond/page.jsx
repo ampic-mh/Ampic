@@ -1,16 +1,14 @@
 "use client";
 
 import {
-  ArrowLeft,
   CheckCircle,
   Ruler,
   Shield,
   Sparkles,
-  Layers,
-  ChevronDown,
+  Layers
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import imgPlafondBA13 from "@/assets/plafand-b13.jpg";
+import ServiceHero from "@/app/services/components/ServiceHero";
 
 export default function FauxPlafondPage() {
   const types = [
@@ -75,62 +73,13 @@ export default function FauxPlafondPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] w-full overflow-hidden">
-        
-        {/* 1. BACKGROUND IMAGE */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={imgPlafondBA13}
-            alt="Architecture Intérieure - Faux Plafond BA13"
-            className="w-full h-full object-cover opacity-90 transition-transform duration-[10s] ease-out scale-100 hover:scale-110"
-            style={{ animation: "slowZoom 20s infinite alternate" }}
-          />
-        </div>
-
-        {/* 2. GRADIENTS */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
-
-        {/* 3. CONTENT CONTAINER */}
-        <div className="relative z-20 h-full max-w-7xl mx-auto px-6 flex flex-col justify-center mt-10 md:mt-20">
-          {/* A. NAVIGATION */}
-          <div className="absolute top-20 md:top-16 left-6 md:left-8 animate-in fade-in slide-in-from-top-4 duration-1000">
-            <Link
-              to="/#services"
-              className="group inline-flex items-center gap-3 text-white/70 hover:text-amber-500 transition-colors uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold"
-            >
-              <div className="w-8 h-[1px] bg-white/30 group-hover:w-12 group-hover:bg-amber-500 transition-all duration-300" />
-              Retour aux Services
-            </Link>
-          </div>
-
-          {/* B. MAIN TEXT BLOCK */}
-          <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <h1 className="text-5xl md:text-5xl lg:text-7xl font-serif text-white leading-[0.9] mb-10">
-              Faux Plafond en plaque de plâtre
-            </h1>
-
-            <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-xl border-l-2 border-amber-600 pl-6">
-              Sculptez vos volumes et maîtrisez l'acoustique. Nos solutions en{" "}
-              <strong className="text-white font-medium">
-                plaque de plâtre (type BA13, 12,5 mm)
-              </strong>{" "}
-              allient performance technique et esthétique épurée.
-            </p>
-          </div>
-        </div>
-
-        {/* 4. SCROLL INDICATOR (CORRECTED) */}
-        {/* Changed logic: w-full + items-center ensures perfect centering */}
-        <div className="absolute bottom-10 left-0 w-full z-20 flex flex-col items-center gap-2 animate-bounce opacity-70">
-          <span className="text-[10px] uppercase tracking-widest text-white/50">
-            Découvrir
-          </span>
-          <ChevronDown className="text-amber-500 w-6 h-6" />
-        </div>
-        
-      </section>
+      
+      <ServiceHero
+        title="Faux Plafond en plaque de plâtre"
+        description="Sculptez vos volumes et maîtrisez l'acoustique. Nos solutions en plaque de plâtre (type BA13, 12,5 mm) allient performance technique et esthétique épurée."
+        image={imgPlafondBA13}
+        imageAlt="Architecture Intérieure - Faux Plafond en plaque de plâtre"
+      />
 
       {/* Caractéristiques */}
       <section className="pt-16 lg:pt-20 px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">

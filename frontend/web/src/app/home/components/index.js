@@ -1,9 +1,7 @@
 export { default as HeroSlider } from "./HeroSlider";
 export { default as ValuesSection } from "./ValuesSection";
 export { default as AboutSection } from "./AboutSection";
-export { default as StatsSection } from "./StatsSection";
 export { default as ServicesSection } from "./ServicesSection";
 export { default as ProjectsSection } from "./ProjectsSection";
 export { default as SignatureQuote } from "./SignatureQuote";
-export { default as BlogSection } from "./BlogSection";
 export { default as ContactSection } from "./ContactSection";
