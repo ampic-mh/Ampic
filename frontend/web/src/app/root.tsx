@@ -22,8 +22,6 @@ import './global.css';
 
 import { toPng } from 'html-to-image';
 import fetch from '@/__create/fetch';
-// @ts-ignore
-import { SessionProvider } from '@auth/create/react';
 import { useNavigate } from 'react-router';
 import { serializeError } from 'serialize-error';
 import { Toaster } from 'sonner';
@@ -549,7 +547,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
 export default function App() {
   return (
-    <SessionProvider>
+    <>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#1a1a1a] focus:text-white focus:rounded">
         Aller au contenu principal
       </a>
@@ -558,6 +556,6 @@ export default function App() {
         <Outlet />
       </main>
       <Footer />
-    </SessionProvider>
+    </>
   );
 }
