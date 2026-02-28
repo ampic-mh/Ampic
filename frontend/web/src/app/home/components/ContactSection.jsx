@@ -108,9 +108,14 @@ export default function ContactSection() {
                       <p className="text-xs uppercase tracking-widest text-gray-400 mb-2 font-medium">
                         Adresse
                       </p>
-                      <p className="text-lg text-[#1a1a1a] font-light leading-relaxed">
+                      <a
+                        href={siteConfig.contact.mapLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg text-[#1a1a1a] font-light leading-relaxed hover:text-gray-600 transition-colors duration-300"
+                      >
                         {siteConfig.contact.address}
-                      </p>
+                      </a>
                     </div>
                   </div>
                 </div>

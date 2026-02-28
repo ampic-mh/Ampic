@@ -6,11 +6,12 @@ import {
   Sparkles,
   Layers
 } from "lucide-react";
-import imgPlafondBA13 from "@/assets/plafand-b13.jpg";
+import imgPlafondBA13 from "@/assets/faux_plafand.jpeg";
+import Faux_autoportant from "@/assets/Faux_plafand_autoportant.jpeg";
 import ServiceHero from "@/app/services/components/ServiceHero";
 import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
 import { useSeo } from "@/utils/useSeo";
-
+import Plafond_Autoportant from "@/assets/Plafond_Autoportant.jpeg";
 
 export default function FauxPlafondPage() {
   const title = "Faux Plafond en Plaque de Plâtre | AMPIC";
@@ -37,7 +38,7 @@ export default function FauxPlafondPage() {
         "Hauteur sous plafond ajustable selon vos besoins",
       ],
       image:
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+        Faux_autoportant,
     },
     {
       title: "Faux Plafond Autoportant",
@@ -52,7 +53,7 @@ export default function FauxPlafondPage() {
         "Préserve l'intégrité du plafond d'origine",
       ],
       image:
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+        Plafond_Autoportant,
     },
   ];
 

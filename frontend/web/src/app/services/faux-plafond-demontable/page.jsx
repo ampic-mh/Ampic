@@ -11,7 +11,7 @@ import imgArmstrong from "@/assets/armstrang.jpg";
 import ServiceHero from "../components/ServiceHero";
 import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
 import { useSeo } from "@/utils/useSeo";
-
+import plafond_métallique from "@/assets/plafond_métallique.jpeg";
 
 export default function FauxPlafondDemontablePage() {
   const title = "Faux Plafond Démontable | AMPIC";
@@ -53,7 +53,7 @@ export default function FauxPlafondDemontablePage() {
         "Entretien facile",
       ],
       image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+        plafond_métallique,
     },
     {
       title: "Dalles minérales ou fibre de verre",

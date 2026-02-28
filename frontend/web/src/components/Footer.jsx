@@ -22,7 +22,7 @@ export default function Footer() {
                 AMPIC
               </h3>
               <p className="text-sm text-gray-400 leading-relaxed mb-6">
-                Expertise en aménagement de plafonds BA13, design d'intérieur et finitions premium depuis plus de 15 ans.
+                Expertise en aménagement de plafonds BA13, design d'intérieur et finitions premium depuis plus de 7 ans.
               </p>
               <div className="flex gap-3">
                 <div className="w-12 h-1 bg-white" />
@@ -104,9 +104,16 @@ export default function Footer() {
                     <span className="text-sm break-all">{siteConfig.contact.email}</span>
                   </a>
                 </li>
-                <li className="flex items-start gap-3 text-gray-400">
-                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">{siteConfig.contact.address}</span>
+                <li>
+                  <a
+                    href={siteConfig.contact.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 text-gray-400 hover:text-white transition-colors duration-300 group"
+                  >
+                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-sm">{siteConfig.contact.address}</span>
+                  </a>
                 </li>
               </ul>
             </div>

@@ -26,8 +26,8 @@ export interface NavItem {
     navItems: NavItem[];
   }
 
-  const phoneRaw = "+212600000000";
-  const email = "ampic@gmail.com";
+  const phoneRaw = "+212 666 771 912";
+  const email = "Ampic.mh@gmail.com";
   
   export const siteConfig: SiteConfig = {
     name: "AMPIC",
@@ -41,13 +41,13 @@ export interface NavItem {
       whatsapp: "https://wa.me/" + phoneRaw,
       email: email,
       emailLink: "mailto:" + email,
-      address: "123 Bd Zerktouni, Casablanca, Maroc",
-      mapLink: "https://maps.google.com/?q=123 Bd Zerktouni, Casablanca, Maroc" 
+      address: "Lot Noamane imm 9 Etage N°9 bureau N°913 Bouskoura , Casablanca ,Maroc",
+      mapLink: "https://maps.google.com/?q=Lot+Noamane+imm+9+Etage+N%C2%B09+bureau+N%C2%B0913+Bouskoura,+Casablanca,+Maroc"
     },
   
     socials: {
-      facebook: "https://facebook.com/",
-      instagram: "https://instagram.com/",
+      facebook: "https://www.facebook.com/share/1BnEVtdk8Z/",
+      instagram: "https://www.instagram.com/ampic.sarl?igsh=cndheTJnOXh0bjh2",
       linkedin: "https://linkedin.com/",
     },
   

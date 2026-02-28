@@ -7,6 +7,9 @@ import {
 } from "lucide-react";
 import { siteConfig } from "../../../config/site";
 import { useSectionLink } from "@/utils/useSectionLink";
+import imgacuel from "@/assets/accueil.jpeg";
+import imgaceul2 from "@/assets/accueil2.jpeg";
+import  imgaceul3 from "@/assets/accuil3.jpeg";
 
 export default function HeroSlider() {
   const handleSectionClick = useSectionLink();
@@ -28,7 +31,7 @@ export default function HeroSlider() {
       description:
         "Installation professionnelle de plafonds BA13 & Armstrong. Transformez vos volumes avec des finitions premium.",
       image:
-        "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1920&q=80",
+        imgacuel,
       cta: "Demander un devis",
       link: "#contact",
     },
@@ -39,7 +42,7 @@ export default function HeroSlider() {
       description:
         "Redéfinissez vos espaces avec nos cloisons sur mesure. Une solution rapide garantissant une isolation optimale.",
       image:
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80",
+       imgaceul2,
       cta: "Nos solutions",
       link: "#services",
     },
@@ -50,7 +53,7 @@ export default function HeroSlider() {
       description:
         "Des revêtements muraux décoratifs qui allient durabilité et élégance pour sublimer l'atmosphère de votre intérieur.",
       image:
-        "https://images.unsplash.com/photo-1620626012053-1541e455023c?w=1920&q=80",
+        imgaceul3,
       cta: "Nos savoir-faire",
       link: "#projets",
     },

@@ -13,9 +13,10 @@ import {
   PaintBucket,
 } from "lucide-react";
 
-import imgHabillage from "@/assets/Habillage.jpg";
+import Habillage from "@/assets/Habillage_Mural.jpeg";
 import ServiceHero from "@/app/services/components/ServiceHero";
-import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
+import { getCanonicalUrl, getFullOgImageUrl } from "@/config/seo";
+import { useSeo } from "@/utils/useSeo";
 
 
 export default function HabillageBA13Page() {
@@ -141,7 +142,7 @@ export default function HabillageBA13Page() {
       <ServiceHero
         title="Habillage en BA13"
         description="Solution polyvalente pour les cloisons, doublages et plafonds, nécessitant une ossature métallique ou un collage direct. Finition parfaite pour tous vos espaces."
-        image={imgHabillage}
+        image={Habillage}
         imageAlt="Architecture Intérieure - Habillage en BA13"
       />
 

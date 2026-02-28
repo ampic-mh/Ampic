@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { siteConfig } from "../../../config/site";
 import { Slider } from "@/components/Slider";
 import { useSectionLink } from "@/utils/useSectionLink";
-import imgacuel from "@/assets/acuel.jpeg";
-import imgaceul2 from "@/assets/aceul2.jpeg";
+import imgacuel from "@/assets/accueil.jpeg";
+import imgaceul2 from "@/assets/accueil2.jpeg";
 import SectionSeparator from "@/components/SectionSeparator";
 
 export default function AboutSection() {

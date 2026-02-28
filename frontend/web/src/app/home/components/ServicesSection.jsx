@@ -2,10 +2,10 @@
 import { Link } from "react-router";
 import { ArrowRight, ChevronRight, Minus } from "lucide-react";
 import { useSectionLink } from "@/utils/useSectionLink";
-import imgPlafondBA13 from "@/assets/plafand-b13.jpg";
+import imgPlafondBA13 from "@/assets/faux_plafand.jpeg";
 import imgArmstrong from "@/assets/armstrang.jpg";
-import imgHabillage from "@/assets/Habillage.jpg";
-import imgcloison from "@/assets/Cloison.jpg";
+import Habillage_Mural from "@/assets/Habillage_Mural.jpeg";
+import Cloisons_Séches from "@/assets/Cloisons_Séches.jpeg";
 import imgtravaux from "@/assets/travaux_devirse.jpeg";
 import SectionSeparator from "@/components/SectionSeparator";
 
@@ -36,7 +36,7 @@ export default function ServicesSection() {
       subtitle: "Agencement d'Espace",
       description:
         "Séparation légère haute performance. Montage rapide sans séchage pour une redistribution flexible des volumes avec isolation phonique certifiée.",
-      image: imgcloison,
+      image: Cloisons_Séches,
       link: "/services/cloisons-seches",
     },
     {
@@ -45,7 +45,7 @@ export default function ServicesSection() {
       subtitle: "Design & Doublage",
       description:
         "Solutions de doublage sur ossature ou collé pour une finition parfaite. Transformez vos murs bruts en surfaces lisses prêtes à peindre ou décorer.",
-      image: imgHabillage,
+      image: Habillage_Mural,
       link: "/services/habillage-ba13",
     },
     {
