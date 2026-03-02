@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export function Slider({ images, interval = 6000 }) {
+export function Slider({ images, interval = 6000, showFrame = true }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-play logic
@@ -25,7 +25,7 @@ export function Slider({ images, interval = 6000 }) {
     <div className="order-1 lg:order-2 relative h-[500px] lg:h-[600px] w-full group perspective-1000">
       
       {/* 1. DECORATIVE GOLD FRAME */}
-      <div className="hidden lg:block absolute top-6 -left-6 w-full h-full border-[1px] border-amber-600/30 z-0 transition-all duration-700" />
+      {showFrame && <div className="hidden lg:block absolute top-6 -left-6 w-full h-full border-[1px] border-amber-600/30 z-0 transition-all duration-700" />}
 
       {/* 2. MAIN SLIDER CONTAINER */}
       {/* Removed bg-gray-900 to prevent black flash, used bg-white or transparent */}

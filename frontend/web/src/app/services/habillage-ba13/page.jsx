@@ -2,10 +2,6 @@
 
 import {
   CheckCircle,
-  Home,
-  Droplets,
-  Volume2,
-  Flame,
   Wrench,
   Layers,
   Grid,
@@ -17,6 +13,13 @@ import Habillage from "@/assets/Habillage_Mural.jpeg";
 import ServiceHero from "@/app/services/components/ServiceHero";
 import { getCanonicalUrl, getFullOgImageUrl } from "@/config/seo";
 import { useSeo } from "@/utils/useSeo";
+import { Slider } from "@/components/Slider";
+import Standard1 from "@/assets/habige/standar/standar.jpeg";
+import Standard2 from "@/assets/habige/standar/standar2.jpeg";
+import Standard3 from "@/assets/habige/standar/standar3.jpeg";
+import Standard4 from "@/assets/habige/standar/standar4.jpeg";
+import Hydrofuge1 from "@/assets/habige/Hydrofuge/Hydrofuge1.jpeg";
+import Hydrofuge2 from "@/assets/habige/Hydrofuge/habiage1.jpeg";
 
 
 export default function HabillageBA13Page() {
@@ -36,7 +39,6 @@ export default function HabillageBA13Page() {
       subtitle: "Usage Général",
       description:
         "Utilisation générale pour les murs et plafonds dans les pièces sèches comme les chambres et le salon. Solution économique et polyvalente.",
-      icon: Home,
       avantages: [
         "Usage général",
         "Pièces sèches",
@@ -44,13 +46,13 @@ export default function HabillageBA13Page() {
         "Solution économique",
         "Finition lisse",
       ],
+      images: [Standard1, Standard2 , Standard3 ,Standard4]
     },
     {
       title: "BA13 Hydrofuge",
       subtitle: "Protection Humidité",
       description:
         "Spécialement conçu pour résister à l'humidité, idéal pour les salles de bain, cuisines et buanderies. Résistance garantie à l'eau.",
-      icon: Droplets,
       avantages: [
         "Résistance à l'humidité",
         "Salles de bain",
@@ -58,8 +60,9 @@ export default function HabillageBA13Page() {
         "Buanderies",
         "Anti-moisissure",
       ],
+      images: [Hydrofuge1, Hydrofuge2],
     },
-    {
+    /*{
       title: "BA13 Phonique",
       subtitle: "Isolation Acoustique",
       description:
@@ -86,7 +89,7 @@ export default function HabillageBA13Page() {
         "Normes incendie",
         "Sécurité renforcée",
       ],
-    },
+    },*/
   ];
 
   const conseilsPose = [
@@ -187,41 +190,46 @@ export default function HabillageBA13Page() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {types.map((type, index) => {
-              const IconComponent = type.icon;
-              return (
-                <div
-                  key={index}
-                  className="group bg-white border border-gray-100 p-8 hover:shadow-md transition-all duration-300 flex gap-6"
-                >
-                  <div className="w-16 h-16 bg-gray-100 group-hover:bg-[#1a1a1a] transition-colors duration-300 flex items-center justify-center flex-shrink-0">
-                    <IconComponent className="w-8 h-8 text-[#1a1a1a] group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs uppercase tracking-widest text-gray-400 mb-2 font-medium">
-                      {type.subtitle}
+          <div className="space-y-24 lg:space-y-32">
+            {types.map((type, index) => (
+              <div
+                key={index}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
+                  index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                }`}
+              >
+                <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
+                  <Slider images={type.images} showFrame={false} />
+                </div>
+
+                <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
+                  <p className="text-xs uppercase tracking-widest text-gray-400 mb-3 font-medium">
+                    {type.subtitle}
+                  </p>
+                  <h3 className="text-3xl lg:text-4xl font-light text-[#1a1a1a] mb-6">
+                    {type.title}
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                    {type.description}
+                  </p>
+                  <div className="space-y-4">
+                    <p className="text-sm uppercase tracking-wider text-gray-400 font-medium mb-4">
+                      Avantages
                     </p>
-                    <h3 className="text-2xl font-light text-[#1a1a1a] mb-3">
-                      {type.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {type.description}
-                    </p>
-                    <div className="space-y-2">
-                      {type.avantages.slice(0, 3).map((avantage, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">
-                            {avantage}
-                          </span>
+                    {type.avantages.map((avantage, idx) => (
+                      <div key={idx} className="flex items-start gap-4 group">
+                        <div className="mt-0.5 flex-shrink-0">
+                          <CheckCircle className="w-5 h-5 text-green-600 group-hover:scale-110 transition-transform duration-300" />
                         </div>
-                      ))}
-                    </div>
+                        <span className="text-gray-700 leading-relaxed">
+                          {avantage}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>

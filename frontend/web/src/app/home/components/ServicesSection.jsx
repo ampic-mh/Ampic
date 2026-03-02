@@ -6,7 +6,7 @@ import imgPlafondBA13 from "@/assets/faux_plafand.jpeg";
 import imgArmstrong from "@/assets/armstrang.jpg";
 import Habillage_Mural from "@/assets/Habillage_Mural.jpeg";
 import Cloisons_Séches from "@/assets/Cloisons_Séches.jpeg";
-import imgtravaux from "@/assets/travaux_devirse.jpeg";
+
 import SectionSeparator from "@/components/SectionSeparator";
 
 export default function ServicesSection() {
@@ -48,15 +48,15 @@ export default function ServicesSection() {
       image: Habillage_Mural,
       link: "/services/habillage-ba13",
     },
-    {
+    /*{
       id: "divers",
       title: "Travaux Divers",
       subtitle: "Rénovation Globale",
       description:
         "Une expertise complète pour tous vos besoins annexes en construction et rénovation. Un interlocuteur unique pour gérer l'ensemble de votre projet.",
-      image: imgtravaux,
+      image: Cloisons_Séches,
       link: "/#contact", // Changed to anchor for consistency
-    },
+    },*/
   ];
 
   return (

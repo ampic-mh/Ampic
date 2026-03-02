@@ -87,12 +87,21 @@ export default function Footer() {
               </h4>
               <ul className="space-y-4">
                 <li>
-                <a
+                  <a
                     href={siteConfig.contact.phoneLink}
                     className="flex items-start gap-3 text-gray-400 hover:text-white transition-colors duration-300 group"
                   >
                     <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-sm">{siteConfig.contact.phone}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteConfig.contact.phone2Link}
+                    className="flex items-start gap-3 text-gray-400 hover:text-white transition-colors duration-300 group"
+                  >
+                    <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-sm">Fixe : {siteConfig.contact.phone2}</span>
                   </a>
                 </li>
                 <li>

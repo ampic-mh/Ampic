@@ -12,6 +12,8 @@ export interface NavItem {
       phone: string;
       phoneRaw: string;
       phoneLink: string;
+      phone2: string;
+      phone2Link: string;
       whatsapp: string;
       email: string;
       emailLink: string;
@@ -38,6 +40,8 @@ export interface NavItem {
       phone: phoneRaw.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5"),
       phoneRaw: phoneRaw, 
       phoneLink: "tel:" + phoneRaw,
+      phone2: "+212 521 235 759",
+      phone2Link: "tel:+212521235759",
       whatsapp: "https://wa.me/" + phoneRaw,
       email: email,
       emailLink: "mailto:" + email,

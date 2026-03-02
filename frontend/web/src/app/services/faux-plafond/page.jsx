@@ -7,12 +7,17 @@ import {
   Layers
 } from "lucide-react";
 import imgPlafondBA13 from "@/assets/faux_plafand.jpeg";
-import Faux_autoportant from "@/assets/Faux_plafand_autoportant.jpeg";
 import ServiceHero from "@/app/services/components/ServiceHero";
 import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
 import { useSeo } from "@/utils/useSeo";
-import Plafond_Autoportant from "@/assets/Plafond_Autoportant.jpeg";
-
+import { Slider } from "@/components/Slider";
+import FauxPlafond1 from "@/assets/faux_plfand/Faux_Plafond1.jpeg";
+import FauxPlafond2 from "@/assets/faux_plfand/Faux_Plafond2.jpeg";
+import FauxPlafond3 from "@/assets/faux_plfand/Faux_Plafond3.jpeg";
+import FauxPlafond4 from "@/assets/faux_plfand/Faux_Plafond4.jpeg";
+import FauxPlafond5 from "@/assets/faux_plfand/Faux_Plafond5.jpeg";
+import FauxPlafond6 from "@/assets/faux_plfand/Faux_Plafond6.jpeg";
+import FauxPlafond7 from "@/assets/faux_plfand/Faux_Plafond7.jpeg";
 export default function FauxPlafondPage() {
   const title = "Faux Plafond en Plaque de Plâtre | AMPIC";
   const description =
@@ -24,6 +29,16 @@ export default function FauxPlafondPage() {
     canonical: getCanonicalUrl("/services/faux-plafond"),
     ogImage: getFullOgImageUrl(),
   });
+  const fauxPlafondImages = [
+    FauxPlafond1,
+    FauxPlafond2,
+    FauxPlafond3,
+    FauxPlafond4,
+    FauxPlafond5,
+    FauxPlafond6,
+    FauxPlafond7
+  ];
+
   const types = [
     {
       title: "Faux Plafond Suspendu",
@@ -37,10 +52,9 @@ export default function FauxPlafondPage() {
         "Permet de grandes portées sans déformation",
         "Hauteur sous plafond ajustable selon vos besoins",
       ],
-      image:
-        Faux_autoportant,
+      images: fauxPlafondImages,
     },
-    {
+    /*{
       title: "Faux Plafond Autoportant",
       subtitle: "Solution Rénovation Express",
       description:
@@ -54,6 +68,27 @@ export default function FauxPlafondPage() {
       ],
       image:
         Plafond_Autoportant,
+    },*/
+  ];
+
+  const conseilsPose = [
+    {
+      title: "Ossature métallique",
+      description:
+        "Fixation des fourrures et suspentes réglables au plafond existant pour créer une structure solide et parfaitement de niveau.",
+      icon: Layers,
+    },
+    {
+      title: "Vissage des plaques",
+      description:
+        "Les plaques BA13 sont vissées sur l'ossature avec un espacement précis pour garantir planéité et solidité.",
+      icon: Ruler,
+    },
+    {
+      title: "Finition",
+      description:
+        "Traitement des joints avec bandes et enduit pour une surface parfaitement lisse, prête pour la peinture.",
+      icon: Sparkles,
     },
   ];
 
@@ -130,8 +165,8 @@ export default function FauxPlafondPage() {
               Types de Faux Plafond
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Découvrez nos deux solutions principales pour vos projets de faux
-              plafonds en plaques de plâtre, adaptées à chaque contexte.
+              Découvrez notre solution professionnelle pour vos projets de faux
+              plafonds en plaques de plâtre, adaptée à chaque contexte.
             </p>
           </div>
 
@@ -144,14 +179,7 @@ export default function FauxPlafondPage() {
                 }`}
               >
                 <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                  <div className="relative overflow-hidden group">
-                    <img
-                      src={type.image}
-                      alt={type.title}
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
+                  <Slider images={type.images} showFrame={false} />
                 </div>
 
                 <div
@@ -187,6 +215,43 @@ export default function FauxPlafondPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Conseils de pose */}
+      <section className="py-24 lg:py-32 px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl lg:text-5xl font-light text-[#1a1a1a] mb-6">
+              Conseils de pose
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Les étapes essentielles pour une installation réussie de votre
+              faux plafond en plaque de plâtre.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {conseilsPose.map((conseil, index) => {
+              const Icon = conseil.icon;
+              return (
+                <div
+                  key={index}
+                  className="group bg-white p-8 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
+                >
+                  <div className="w-14 h-14 bg-gray-100 group-hover:bg-[#1a1a1a] transition-colors duration-300 flex items-center justify-center mx-auto mb-6">
+                    <Icon className="w-7 h-7 text-[#1a1a1a] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-xl font-light text-[#1a1a1a] mb-4">
+                    {conseil.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {conseil.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

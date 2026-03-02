@@ -2,60 +2,58 @@
 import { useState } from "react";
 import SectionSeparator from "@/components/SectionSeparator";
 import { useSectionLink } from "@/utils/useSectionLink";
+import img1 from "@/assets/Notre_Savoir-Faire/image1.jpeg";
+import img2 from "@/assets/Notre_Savoir-Faire/image2.jpeg";
+import img3 from "@/assets/Notre_Savoir-Faire/image3.jpeg";
+import img4 from "@/assets/Notre_Savoir-Faire/image4.jpeg";
+import imgBuilding from "@/assets/Notre_Savoir-Faire/building.jpg";
+import imgOffice from "@/assets/Notre_Savoir-Faire/view-modern-office.jpg";
 
 export default function ProjectsSection() {
   const handleSectionClick = useSectionLink();
   const projects = [
     {
-      title: "Éclairage LED pour Établissements de Santé",
-      category: "Santé",
-      image:
-        "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80",
-      description: "Solutions adaptées aux normes hospitalières"
-    },
-    {
-      title: "Aménagement d'Espaces Professionnels",
-      category: "Bureaux",
-      image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-      description: "Ambiances productives et élégantes"
-    },
-    {
-      title: "Design d'Intérieur Premium",
-      category: "Santé",
-      image:
-        "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80",
-      description: "Confort et fonctionnalité optimale"
-    },
-    {
-      title: "Solutions pour Espaces Commerciaux",
-      category: "Commerce",
-      image:
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
-      description: "Valorisation de votre point de vente"
-    },
-    {
-      title: "Concepts Modernes sur Mesure",
+      title: "Faux Plafond Décoratif LED",
       category: "Résidentiel",
-      image:
-        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&q=80",
-      description: "Excellence et innovation"
+      image: img1,
+      description: "Design géométrique avec éclairage LED indirect noir et blanc"
     },
     {
-      title: "Open Spaces Collaboratifs",
+      title: "Faux Plafond Suspendu Lumineux",
+      category: "Résidentiel",
+      image: img2,
+      description: "Plafond épuré avec spots encastrés et bandeau LED blanc"
+    },
+    {
+      title: "Habillage Mural & Faux Plafond",
+      category: "Résidentiel",
+      image: img3,
+      description: "Boiseries décoratives BA13 et rail LED encastré"
+    },
+    {
+      title: "Aménagement Intérieur Complet",
+      category: "Résidentiel",
+      image: img4,
+      description: "Faux plafond géométrique LED et habillage mural bois naturel"
+    },
+    {
+      title: "Plafond Acoustique Architectural",
       category: "Bureaux",
-      image:
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80",
-      description: "Performance et bien-être au travail"
+      image: imgBuilding,
+      description: "Solutions techniques pour espaces de prestige"
+    },
+    {
+      title: "Open Space Professionnel",
+      category: "Bureaux",
+      image: imgOffice,
+      description: "Plafond LED modulaire pour espaces de travail collaboratifs"
     },
   ];
 
   const filterOptions = [
     { label: "Tous nos Services", value: "Tout" },
-    { label: "Santé", value: "Santé" },
-    { label: "Restauration", value: "Restauration" },
+    { label: "Résidentiel", value: "Résidentiel" },
     { label: "Bureaux", value: "Bureaux" },
-    { label: "Commerce", value: "Commerce" },
   ];
 
   const [filter, setFilter] = useState("Tout");

@@ -1,20 +1,46 @@
 
-import { MessageCircle, Phone, Mail, MapPin, Send } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, Send, CheckCircle, AlertCircle, Loader } from "lucide-react";
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
 import SectionSeparator from "@/components/SectionSeparator";
+
+const FLASK_API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
     subject: "",
     message: "",
   });
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch(`${FLASK_API_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Une erreur s'est produite.");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", phone: "", subject: "", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(err.message || "Impossible d'envoyer le message. Réessayez.");
+    }
   };
 
   const handleChange = (e) => {
@@ -66,12 +92,31 @@ export default function ContactSection() {
                       <p className="text-xs uppercase tracking-widest text-gray-400 mb-2 font-medium">
                         Téléphone
                       </p>
-
                       <a
                         href={siteConfig.contact.phoneLink}
                         className="text-xl text-[#1a1a1a] hover:text-gray-600 transition-colors duration-300 font-light"
                       >
                         {siteConfig.contact.phone}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Téléphone Fixe */}
+                <div className="group">
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 p-3 bg-gray-50 group-hover:bg-[#1a1a1a] transition-colors duration-300">
+                      <Phone className="w-5 h-5 text-[#1a1a1a] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs uppercase tracking-widest text-gray-400 mb-2 font-medium">
+                        Téléphone Fixe
+                      </p>
+                      <a
+                        href={siteConfig.contact.phone2Link}
+                        className="text-xl text-[#1a1a1a] hover:text-gray-600 transition-colors duration-300 font-light"
+                      >
+                        {siteConfig.contact.phone2}
                       </a>
                     </div>
                   </div>
@@ -198,6 +243,25 @@ export default function ContactSection() {
                 />
               </div>
 
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-6 py-4 border border-gray-200 focus:border-[#1a1a1a] focus:ring-1 focus:ring-[#1a1a1a] outline-none transition-all duration-300"
+                  placeholder="votre@email.com"
+                />
+              </div>
+
               <div className="group relative">
                 <label
                   htmlFor="subject"
@@ -272,12 +336,38 @@ export default function ContactSection() {
                 ></textarea>
               </div>
 
+              {status === "success" && (
+                <div className="flex items-center gap-3 bg-green-50 border border-green-200 text-green-800 px-6 py-4">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm font-medium">
+                    Votre demande a été envoyée avec succès ! Nous vous répondrons dans les 24h.
+                  </p>
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="flex items-center gap-3 bg-red-50 border border-red-200 text-red-800 px-6 py-4">
+                  <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm font-medium">{errorMessage}</p>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="group w-full bg-[#1a1a1a] text-white px-8 py-4 font-medium tracking-wider uppercase hover:bg-gray-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-3"
+                disabled={status === "loading"}
+                className="group w-full bg-[#1a1a1a] text-white px-8 py-4 font-medium tracking-wider uppercase hover:bg-gray-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <span>Envoyer ma demande</span>
-                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                {status === "loading" ? (
+                  <>
+                    <Loader className="w-4 h-4 animate-spin" />
+                    <span>Envoi en cours...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Envoyer ma demande</span>
+                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </>
+                )}
               </button>
 
               <p className="text-xs text-gray-500 text-center">

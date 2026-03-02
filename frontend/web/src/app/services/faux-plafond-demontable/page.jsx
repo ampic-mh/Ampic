@@ -11,7 +11,16 @@ import imgArmstrong from "@/assets/armstrang.jpg";
 import ServiceHero from "../components/ServiceHero";
 import { getCanonicalUrl, getFullOgImageUrl, seoConfig } from "@/config/seo";
 import { useSeo } from "@/utils/useSeo";
-import plafond_métallique from "@/assets/plafond_métallique.jpeg";
+import { Slider } from "@/components/Slider";
+import Armstrong1 from "@/assets/Armstrong/plâtre_Armstrong1.jpeg";
+import Armstrong2 from "@/assets/Armstrong/plâtre_Armstrong2.jpeg";
+import Armstrong3 from "@/assets/Armstrong/plâtre_Armstrong3.jpeg";
+import Armstrong4 from "@/assets/Armstrong/plâtre_Armstrong4.jpeg";
+import Metallique1 from "@/assets/faux_plfand/métallique/métallique1.jpeg";
+import Metallique2 from "@/assets/faux_plfand/métallique/métallique2.jpeg";
+import Metallique3 from "@/assets/faux_plfand/métallique/metllique3.jpeg";
+import Metallique4 from "@/assets/faux_plfand/métallique/metallique4.jpeg";
+import Metallique5 from "@/assets/faux_plfand/métallique/plafond_métallique.jpeg";
 
 export default function FauxPlafondDemontablePage() {
   const title = "Faux Plafond Démontable | AMPIC";
@@ -24,53 +33,41 @@ export default function FauxPlafondDemontablePage() {
     canonical: getCanonicalUrl("/services/faux-plafond-demontable"),
     ogImage: getFullOgImageUrl(),
   });
+  const armstrongImages = [Armstrong1, Armstrong2, Armstrong3, Armstrong4];
+  const metalliqueImages = [Metallique1, Metallique2, Metallique3, Metallique4, Metallique5];
+
   const types = [
     {
-      title: "Dalles de plâtre (Gyptone / Gyprex)",
+      title: "Dalles en plaque  de plâtre  /Armstrong",
       subtitle: "Performance Acoustique & Hygiène",
       description:
-        "Les dalles perforées pour l'acoustique ou revêtues d'un parement vinyle pour l'hygiène, idéales pour les cuisines professionnelles ou établissements de santé.",
+        "Les dalles perforées pour l'acoustique ou revêtues d'un parement vinyle pour l'hygiène, idéales pour les cuisines professionnelles ou établissements de santé. Reconnues pour leur performance acoustique, ces dalles sont parfaites pour la réduction de l'écho dans les espaces ouverts.",
       avantages: [
         "Excellente performance acoustique",
         "Parement vinyle pour l'hygiène",
         "Idéal pour cuisines professionnelles",
         "Adapté aux établissements de santé",
         "Finitions perforées ou lisses",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-    },
-    {
-      title: "Faux plafond métallique",
-      subtitle: "Durabilité & Sécurité",
-      description:
-        "Bacs en acier laqué (lisses ou perforés) offrant une grande durabilité, souvent posés sur ossature semi-apparente avec des ressorts de maintien pour un accès sécurisé.",
-      avantages: [
-        "Grande durabilité",
-        "Acier laqué lisse ou perforé",
-        "Ossature semi-apparente",
-        "Accès sécurisé au plénum",
-        "Entretien facile",
-      ],
-      image:
-        plafond_métallique,
-    },
-    {
-      title: "Dalles minérales ou fibre de verre",
-      subtitle: "Solution Acoustique Premium",
-      description:
-        "Reconnues pour leur performance acoustique, ces dalles sont parfaites pour la réduction de l'écho dans les espaces ouverts.",
-      avantages: [
-        "Performance acoustique optimale",
         "Réduction de l'écho",
         "Idéal pour open spaces",
         "Large choix de finitions",
         "Légèreté des dalles",
       ],
-      image:
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+      images: armstrongImages,
     },
     {
+      title: "Faux plafond en lamme métallique",
+      subtitle: "Durabilité & Sécurité",
+      description:
+        "Le faux plafond en lames métalliques est un plafond suspendu composé de lames en aluminium ou en acier laqué, fixées sur une ossature métallique.",
+      avantages: [
+        "Grande durabilité",
+        "facilité d'entretien ",
+        "Entretien facile",
+      ],
+      images: metalliqueImages,
+    },
+    /*{
       title: "Dalles PVC",
       subtitle: "Résistance en Zones Humides",
       description:
@@ -99,7 +96,7 @@ export default function FauxPlafondDemontablePage() {
       ],
       image:
         "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&q=80",
-    },
+    },*/
   ];
 
   const bordures = [
@@ -116,6 +113,27 @@ export default function FauxPlafondDemontablePage() {
       subtitle: "Finition Esthétique",
       description:
         "Le bord est usiné pour reposer sur le profilé, offrant une meilleure esthétique avec une ossature moins visible tout en restant démontable.",
+    },
+  ];
+
+  const conseilsPose = [
+    {
+      title: "Ossature semi-apparente",
+      description:
+        "Rails périmétriques fixés aux murs et porteurs suspendus au plafond, formant une grille régulière et de niveau.",
+      icon: Grid,
+    },
+    {
+      title: "Pose des dalles",
+      description:
+        "Dalles glissées délicatement dans l'ossature et ajustées sans outils, offrant un accès facile au plénum.",
+      icon: Ruler,
+    },
+    {
+      title: "Accès sécurisé",
+      description:
+        "Le système permet un accès rapide aux réseaux techniques (câbles, gaines) sans démontage complet.",
+      icon: Lock,
     },
   ];
 
@@ -205,14 +223,18 @@ export default function FauxPlafondDemontablePage() {
                 }`}
               >
                 <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                  <div className="relative overflow-hidden group">
-                    <img
-                      src={type.image}
-                      alt={type.title}
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
+                  {type.images ? (
+                    <Slider images={type.images} showFrame={false} />
+                  ) : (
+                    <div className="relative overflow-hidden group">
+                      <img
+                        src={type.image}
+                        alt={type.title}
+                        className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  )}
                 </div>
 
                 <div
@@ -252,7 +274,7 @@ export default function FauxPlafondDemontablePage() {
         </div>
       </section>
 
-      {/* Types de bordures */}
+      {/* Types de bordures 
       <section className="py-24 lg:py-32 px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -282,6 +304,43 @@ export default function FauxPlafondDemontablePage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>*/}
+
+      {/* Conseils de pose */}
+      <section className="py-24 lg:py-32 px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl lg:text-5xl font-light text-[#1a1a1a] mb-6">
+              Conseils de pose
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Les étapes essentielles pour une installation réussie de votre
+              faux plafond démontable.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {conseilsPose.map((conseil, index) => {
+              const Icon = conseil.icon;
+              return (
+                <div
+                  key={index}
+                  className="group bg-white p-8 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
+                >
+                  <div className="w-14 h-14 bg-gray-100 group-hover:bg-[#1a1a1a] transition-colors duration-300 flex items-center justify-center mx-auto mb-6">
+                    <Icon className="w-7 h-7 text-[#1a1a1a] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-xl font-light text-[#1a1a1a] mb-4">
+                    {conseil.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {conseil.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
