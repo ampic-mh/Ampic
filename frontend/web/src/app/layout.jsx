@@ -11,10 +11,6 @@ const queryClient = new QueryClient({
   },
 });
 
-export default function RootLayout({children}) {
-  return (
-    <QueryClientProvider client={queryClient}>
-      {children}
-    </QueryClientProvider>
-  );
+export default function RootLayout({ children }) {
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 }

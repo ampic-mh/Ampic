@@ -1,5 +1,3 @@
-import AMPICHeader from "@/components/AMPICHeader";
-import AMPICFooter from "@/components/AMPICFooter";
 import {
   ArrowRight,
   CheckCircle,
@@ -114,8 +112,6 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0F172A]">
-      <AMPICHeader />
-
       {/* Hero Section */}
       <section
         className="relative pt-32 pb-20 px-6 overflow-hidden"
@@ -249,8 +245,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      <AMPICFooter />
     </div>
   );
 }
